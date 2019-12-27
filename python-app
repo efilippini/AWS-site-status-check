@@ -23,7 +23,8 @@ def check_site(url, metric):
 	
 	STAT = 1
 	print("Checking %s " % url)
-	request = urllib2.Request("http://" +url)
+	# Para HTTP, altere onde agora esta https
+	request = urllib2.Request("https://" +url)
 	
 	try:
 		response = urllib2.urlopen(request)
@@ -55,12 +56,12 @@ def check_site(url, metric):
 
 def lambda_handler(event, context):
  
-	# Change these to your actual websites.  Remember, the more websites you list
-        # the longer the lambda function will run        
+	# Aqui voce coloca sua lista de sites
+        # Quanto maior for a lista, mais demorada será a execução        
 	websiteurls = [
-		"example.com",
-		"example2.com",
-		"test.com"
+		"site1.com",
+		"site2.com",
+		"site3.com"
 	]
 	metricname = 'Site Availability'
 	
